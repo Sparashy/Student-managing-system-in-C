@@ -28,9 +28,9 @@ id:
     }
     printf("请输入成绩（数学 英语 程序设计）：\n");
     scanf("%d %d %d", &ptr->s.math, &ptr->s.english, &ptr->s.Computer_Programming);
-    ptr->s.total = ptr->s.math + ptr->s.english + ptr->s.Computer_Programming;
+    ptr->s.total = ptr->s.math + ptr->s.english + ptr->s.Computer_Programming;//计算成绩总和和平均值
     ptr->s.ave = ptr->s.total / 3.0;
-    ptr->next = h->next;
+    ptr->next = h->next;//将节点加入现有链表
     h->next = ptr;
     system("pause");
 }
@@ -88,7 +88,7 @@ input:
     }
     while (tmp->next != NULL)
     {
-        stu = &(tmp->next->s);
+        stu = &(tmp->next->s);//获取节点学生结构体指针
         if (!strcmp(stu->id, tmpid))
         {
             flag = 1;
@@ -143,6 +143,9 @@ input:
         default:
             break;
         }
+
+    stu->total=stu->math+stu->english+stu->Computer_Programming;
+    stu->ave=stu->total/3.0;
 
     default:
         break;

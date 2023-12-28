@@ -16,7 +16,7 @@ head list; // 链表头
 FILE *fa;  // 文件指针
 FILE *fr;
 FILE *fw;
-void initialize()//初始化并读取数据
+void initialize() // 初始化并读取数据
 {
     fa = fopen("data.txt", "a");
     fr = fopen("data.txt", "r");
@@ -52,23 +52,23 @@ void free_all(head h) // 释放内存
     }
     free(ptr);
 }
-void clear_file()//储存前清空文件
+void clear_file() // 储存前清空文件
 {
     fw = fopen("data.txt", "w");
 
     fclose(fw);
 }
-void save(head h)//保存数据到文件
+void save(head h) // 保存数据到文件
 {
     ptrtonode tmp = h;
-    clear_file();
+    clear_file(); // 储存前先清空文件
     if (tmp->next == NULL)
         return;
-    fseek(fa,0,SEEK_SET);
+    fseek(fa, 0, SEEK_SET);
     while (tmp->next != NULL)
     {
         fwrite(&tmp->next->s, sizeof(student), 1, fa);
-        tmp=tmp->next;
+        tmp = tmp->next;
     }
     fclose(fa);
 }
